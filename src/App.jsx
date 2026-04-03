@@ -16,6 +16,17 @@ const firebaseConfig = {
   appId: "1:271734570113:web:322ac13ffdfba7f610a180",
 };
 
+// --- FUNGSI RESET HASIL ---
+const handleReset = async () => {
+  if (window.confirm("Apakah Anda yakin ingin menghapus hasil tim? (Daftar nama tidak akan hilang)")) {
+    await set(ref(db, 'session/'), {
+      isShuffling: false,
+      currentTeams: [] // Mengosongkan hasil di Firebase
+    });
+    setTeams([]); // Mengosongkan tampilan lokal
+  }
+};
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
@@ -137,6 +148,14 @@ function App() {
               >
                 {isShuffling ? "SYNCING..." : "DEPLOY TEAMS"}
               </button>
+              {/* Di dalam Bagian Admin Control, di bawah button Start Randomize */}
+<button 
+  onClick={handleReset}
+  disabled={isShuffling}
+  className="w-full mt-3 py-2 bg-transparent border border-slate-700 hover:border-red-500 hover:text-red-500 rounded-xl text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50"
+>
+  Reset Results
+</button>
             </div>
           </aside>
         )}
