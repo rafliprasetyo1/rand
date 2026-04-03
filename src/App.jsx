@@ -111,9 +111,9 @@ function App() {
     <div className="min-h-screen bg-slate-950 text-slate-100 p-6 font-sans">
       <header className="text-center mb-10">
         <h1 className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent italic">
-          TEAM SYNC ENGINE
+          TEAM GENERATE
         </h1>
-        <p className="text-slate-500 text-xs tracking-[0.3em] uppercase mt-2">Real-time Distribution System</p>
+        <p className="text-slate-500 text-xs tracking-[0.3em] uppercase mt-2">-</p>
       </header>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -191,7 +191,7 @@ function App() {
 
           {teams.length === 0 && (
             <div className="text-center py-20 border-2 border-dashed border-slate-800 rounded-3xl">
-              <p className="text-slate-600 animate-pulse uppercase tracking-[0.5em] text-sm">Initializing System...</p>
+              <p className="text-slate-600 animate-pulse uppercase tracking-[0.5em] text-sm">Tunggu</p>
             </div>
           )}
         </main>
